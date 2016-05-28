@@ -7,7 +7,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+#ifdef DEBUG
+    
+#else
     ofSetDataPathRoot("../Resources/data/");
+#endif
     
     ofBackground(0, 255);
     ofEnableAntiAliasing();

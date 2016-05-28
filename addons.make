@@ -1,3 +1,2 @@
-addons
 ofxCsv
 ofxGui
