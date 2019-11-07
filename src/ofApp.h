@@ -4,7 +4,7 @@
 #include "ofxCsv.h"
 #include "ofxGui.h"
 
-using namespace wng;
+//using namespace wng;
 
 
 class ofApp : public ofBaseApp{
