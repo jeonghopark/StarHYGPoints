@@ -2,7 +2,6 @@
 
 #include "ofMain.h"
 #include "ofxCsv.h"
-#include "ofxGui.h"
 
 //using namespace wng;
 
@@ -43,19 +42,6 @@ public:
     
     void information();
   
-    ofxPanel gui;
-    ofxIntSlider numCircle;
-    ofxFloatSlider circleSizeRatio;
-    ofxIntSlider innerCircleSize;
-    ofxFloatSlider innerCircleAlpha;
-    
-    ofxIntSlider numBaseCircle;
-    ofxFloatSlider circleBaseSizeRatio;
-    ofxIntSlider innerBaseCircleSize;
-    ofxFloatSlider innerBaseCircleAlpha;
-
-    ofxIntSlider starAlpha;
-    ofxIntSlider lineAlpha;
 
     bool guiOnOff;
 

@@ -35,17 +35,6 @@ void ofApp::setup() {
 
     posSize = ofPoint(ofGetWidth() * 4, ofGetHeight() * 4);
 
-    gui.setup();
-    //    gui.add(starAlpha.setup("Star Alpha", 0.5, 0, 1) );
-    //    gui.add(lineAlpha.setup("Line Alpha", 0.5, 0, 1) );
-    //    gui.add(numBaseCircle.setup("Num BaseCircle", 65, 10, 100));
-    //    gui.add(circleBaseSizeRatio.setup("BaseCircle Size", 0.08, 0, 0.5) );
-    //    gui.add(innerBaseCircleSize.setup("InnerBaseCircle Size", 235, 0, 1000) );
-    //    gui.add(innerBaseCircleAlpha.setup("InnerCircle Size", 0.695, 0, 1) );
-    //    gui.add(numCircle.setup("Num Circle", 66, 10, 100));
-    //    gui.add(circleSizeRatio.setup("Circle Size", 0.15, 0, 5) );
-    //    gui.add(innerCircleSize.setup("InnerCircle Size", 560, 0, 1000) );
-    //    gui.add(innerCircleAlpha.setup("InnerCircle Size", 0.565, 0, 1) );
 
     csv.load(ofToDataPath("hygxyz.csv"));
     for (int i = 1; i < csv.getNumRows(); i++) {
@@ -133,7 +122,7 @@ void ofApp::setup() {
     easyCam.setAutoDistance(false);
     easyCam.setPosition(0, 0, 18);
 
-    guiOnOff = true;
+//    guiOnOff = true;
 
 }
 
@@ -165,9 +154,6 @@ void ofApp::draw() {
 
     ofPushStyle();
 
-//        drawingBaseCircle(90);
-//        drawingCircle(90);
-    //    drawingCircle(180);
 
     //    starLineMesh.draw();
     glPointSize(3);
@@ -232,71 +218,11 @@ void ofApp::draw() {
     //        ofPopStyle();
     //        ofPopMatrix();
     //    }
-
-    //    information();
 }
-
-
-//--------------------------------------------------------------
-void ofApp::drawingBaseCircle(int _degX) {
-
-    ofPushMatrix();
-    ofPushStyle();
-    ofRotateXDeg(_degX);
-    int _numCircle = numBaseCircle;
-
-    for (int i = 0; i < _numCircle; i++) {
-        ofNoFill();
-        ofSetColor(255, ofMap(i, 0, _numCircle - 1, 140, 0)*innerBaseCircleAlpha);
-        ofDrawCircle(0, 0, innerBaseCircleSize + i * i * circleBaseSizeRatio);
-    }
-
-    ofPopStyle();
-    ofPopMatrix();
-
-}
-
-
-//--------------------------------------------------------------
-void ofApp::drawingCircle(int _degX) {
-
-    ofPushMatrix();
-    ofPushStyle();
-    ofRotateXDeg(_degX);
-    int _numCircle = numCircle;
-
-    for (int i = 0; i < _numCircle; i++) {
-        ofNoFill();
-        ofSetColor(255, ofMap(i, 0, _numCircle - 1, 140, 0)*innerCircleAlpha);
-        ofDrawCircle(0, 0, innerCircleSize + i * i * circleSizeRatio);
-    }
-
-    ofPopStyle();
-    ofPopMatrix();
-
-}
-
-//--------------------------------------------------------------
-void ofApp::information() {
-
-    ofSetColor(255);
-    ofDrawBitmapString(ofToString(ofGetFrameRate()), 10, 20);
-    ofDrawBitmapString("starNum : " + ofToString(starMesh.getNumVertices()), 10, 40);
-    ofDrawBitmapString("lineNum : " + ofToString(countLine), 10, 60);
-
-    ofDrawBitmapString("StarData : https://github.com/astronexus/HYG-Database", 10, ofGetHeight() - 20);
-
-}
-
 
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-
-    if (key == 'g') {
-        guiOnOff = !guiOnOff;
-    }
-
 
     if (key == 'c') {
         ofImage _pix;
@@ -304,9 +230,8 @@ void ofApp::keyPressed(int key) {
         _pix.allocate(ofGetWidth(), ofGetHeight(), OF_IMAGE_COLOR);
         _pix.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
         _file = "../../../" + ofGetTimestampString() + " Capture.png";
-        _pix.saveImage(_file);
+        _pix.save(_file);
     }
-
 
 }
 
