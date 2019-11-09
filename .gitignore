@@ -19,4 +19,6 @@ obj/
 
 
 ### ignore Folder
-#¡¦/
+#ï¿½ï¿½/
+*.dll
+*.exe
